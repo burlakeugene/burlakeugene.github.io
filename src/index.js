@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import {Route} from 'react-router';
 import {ConnectedRouter, push} from 'react-router-redux';
 import { connect } from 'react-redux';
+import Preloader from './components/Preloader';
 import Main from './containers/Main';
 import About from './containers/About';
 import {loadSwitch} from './actions/app';
@@ -22,22 +23,16 @@ class App extends Component{
     }
 
     render(){
-        let {loading} = this.props;
-        if(loading){
-            return(
-                <div>Loading....</div>
-            )
-        }
-        else{
-            return(            
-                <ConnectedRouter history={history}>
-                    <div>
-                        <Route exact path="/" component={Main} />
-                        <Route exact path="/about" component={About} />
-                    </div>
-                </ConnectedRouter>            
-            )
-        }        
+        let {loading = false} = this.props;
+        return(        
+            <ConnectedRouter history={history}>                
+                <div>
+                    <Preloader visible={loading} />    
+                    <Route exact path="/" component={Main} />
+                    <Route exact path="/about" component={About} />
+                </div>
+            </ConnectedRouter>            
+        )       
     }
 }
 
