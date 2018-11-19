@@ -18,8 +18,9 @@
         left: 50%;
         width: 100px;
         height: 100px;
-        @include transform(translate(-50%, -50%));
-        @include animated;        
+        margin: -50px 0 0 -50px;
+        @include transform(scale(1));
+        @include animated;
         &:after{
             content: '';
             display: block;
@@ -31,14 +32,15 @@
             background-color: $color-black;
             border-radius: 50%;
             @include transform(scale(1));
-            @include animated;
         }
     }    
     &__hidden{
         .preloader{
             &-inner{
+                @include transform(scale(0));
                 &:after{
                     @include transform(scale(0));
+                    animation-play-state: paused;
                 }
             }
         }
@@ -47,8 +49,7 @@
         opacity: 1;
         visibility: visible;
         .preloader{
-            &-inner{
-                
+            &-inner{                
                 &:after{
                     animation: 1s linear infinite pulse;
                     animation-delay: 0.6s;
@@ -60,7 +61,10 @@
         background-color: $color-black;
         .preloader{
             &-inner{
-                @include transform(scale(40));
+                @include transform(scale(25));
+                &:after{
+                    animation-play-state: paused;
+                }
             }
         }
     }
