@@ -1,39 +1,62 @@
 import React, {Component} from 'react';
 import {loadSwitch} from '../../actions/app';
-import {store, history} from '../../store/';
+import {store} from '../../store/';
+import './sass/styles.scss';
 
 class Preloader extends Component{
     constructor(props){
         super(props);
         this.state = {
-            visible: this.props.visible,
-            firstRender: false
+            loading: this.props.loading,
+            hidden: true,
+            full: false
         }
     }
     componentWillReceiveProps(props){
-        let visibleState = this.state.visible,
-            visibleProps = props.visible;
+        let visibleState = this.state.loading,
+            visibleProps = props.loading;
         if(visibleProps !== visibleState){
-            this.setState({
-                visible: visibleProps
-            })
+            if(visibleProps){
+                this.setState({
+                    full: !visibleProps,
+                    loading: visibleProps
+                });
+            }
+            else{
+                
+                this.setState({
+                    full: !visibleProps
+                },() => {
+                    setTimeout(() => {
+                        this.setState({
+                            loading: visibleProps
+                        })
+                    }, 300);
+                });
+            }
         }
     }
     componentDidMount(){
         setTimeout(() => {
             this.setState({
-                firstRender: true
+                hidden: false
             })
-        }, 1000)
+        }, 500);
+        let bool = true;
         setTimeout(() => {
-            store.dispatch(loadSwitch(true));
-        }, 3000);        
+            store.dispatch(loadSwitch(!bool));
+        }, 2500)
+        
     }
     render(){
-        let {visible, firstRender} = this.state;
+        let {loading, hidden, full} = this.state,
+            className = 'preloader';
+        if(hidden) className += ' preloader__hidden';
+        if(loading) className += ' preloader__loading';
+        if(full) className += ' preloader__full';
         return(
-            <div>
-                {'loading '+visible+' '+firstRender}
+            <div className={className}>
+                <div className="preloader-inner"></div>
             </div>
         )
     }

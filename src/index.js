@@ -10,6 +10,7 @@ import Preloader from './components/Preloader';
 import Main from './containers/Main';
 import About from './containers/About';
 import Layout from './layout/Main';
+import {loadSwitch} from './actions/app';
 
 class App extends Component{
     constructor(props){
@@ -18,8 +19,8 @@ class App extends Component{
     render(){
         let {loading = false} = this.props;
         return(        
-            <div>
-                <Preloader visible={loading} /> 
+            <div className={loading ? 'app-wrapper' : 'app-wrapper app-wrapper__loaded'}>
+                <Preloader loading={loading} /> 
                 <ConnectedRouter history={history}>                
                     <Switch>   
                         <Route exact path="/" component={Layout({main:Main})} />

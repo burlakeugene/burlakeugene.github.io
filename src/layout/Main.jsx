@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../assets/sass/main.css'
+import '../assets/sass/main.scss'
 
 let Layout = function(components) {
     return class extends Component{
