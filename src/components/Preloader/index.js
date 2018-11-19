@@ -8,7 +8,7 @@ class Preloader extends Component{
         super(props);
         this.state = {
             loading: this.props.loading,
-            hidden: true,
+            first: true,
             full: false
         }
     }
@@ -18,18 +18,22 @@ class Preloader extends Component{
         if(visibleProps !== visibleState){
             if(visibleProps){
                 this.setState({
-                    full: !visibleProps,
-                    loading: visibleProps
+                    loading: true
+                }, () => {
+                    setTimeout(() => {
+                        this.setState({
+                            full: false,
+                        })
+                    }, 300)                    
                 });
             }
-            else{
-                
+            else{                
                 this.setState({
-                    full: !visibleProps
+                    full: true
                 },() => {
                     setTimeout(() => {
                         this.setState({
-                            loading: visibleProps
+                            loading: false
                         })
                     }, 300);
                 });
@@ -39,24 +43,25 @@ class Preloader extends Component{
     componentDidMount(){
         setTimeout(() => {
             this.setState({
-                hidden: false
+                first: false
+            }, () => {
+                setTimeout(() => {
+                    store.dispatch(loadSwitch(false));
+                }, 2500);
             })
         }, 500);
         setTimeout(() => {
-            store.dispatch(loadSwitch(false));
-        }, 2500)
-        setTimeout(() => {
             store.dispatch(loadSwitch(true));
-        }, 5000)
+        }, 6000)
         setTimeout(() => {
             store.dispatch(loadSwitch(false));
-        }, 7000)
+        }, 8500)
         
     }
     render(){
-        let {loading, hidden, full} = this.state,
+        let {loading, hidden, full, first} = this.state,
             className = 'preloader';
-        if(hidden) className += ' preloader__hidden';
+        if(first) className += ' preloader__first';
         if(loading) className += ' preloader__loading';
         if(full) className += ' preloader__full';
         return(

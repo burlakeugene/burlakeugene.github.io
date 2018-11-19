@@ -31,39 +31,25 @@
             height: 100%;
             background-color: $color-black;
             border-radius: 50%;
-            @include transform(scale(1));
+            animation: 1s linear infinite pulse;
         }
     }    
-    &__hidden{
+    &__first{
         .preloader{
             &-inner{
                 @include transform(scale(0));
-                &:after{
-                    animation-play-state: paused;
-                }
             }
         }
     }
     &__loading{
         opacity: 1;
         visibility: visible;
-        .preloader{
-            &-inner{                
-                &:after{
-                    animation: 1s linear infinite pulse;
-                    animation-delay: 0.6s;
-                }
-            }
-        }
     }
     &__full{
         background-color: $color-black;
         .preloader{
             &-inner{
                 @include transform(scale(25));
-                &:after{
-                    animation-play-state: paused;
-                }
             }
         }
     }
