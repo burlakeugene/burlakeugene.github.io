@@ -39,7 +39,6 @@
             &-inner{
                 @include transform(scale(0));
                 &:after{
-                    @include transform(scale(0));
                     animation-play-state: paused;
                 }
             }
