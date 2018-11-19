@@ -42,10 +42,15 @@ class Preloader extends Component{
                 hidden: false
             })
         }, 500);
-        let bool = true;
         setTimeout(() => {
-            store.dispatch(loadSwitch(!bool));
+            store.dispatch(loadSwitch(false));
         }, 2500)
+        setTimeout(() => {
+            store.dispatch(loadSwitch(true));
+        }, 5000)
+        setTimeout(() => {
+            store.dispatch(loadSwitch(false));
+        }, 7000)
         
     }
     render(){
