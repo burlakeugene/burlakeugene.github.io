@@ -191,10 +191,6 @@ module.exports = {
               },
             ],
           },
-          {test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: require.resolve('file-loader'),
-          options: {
-            name: 'static/media/[name].[hash:8].[ext]',
-          },},
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
           // In production, they would get copied to the `build` folder.
