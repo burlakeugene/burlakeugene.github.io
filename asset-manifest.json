@@ -1,4 +1,9 @@
 {
-  "main.js": "static/js/main.16fdaa2c.js",
-  "main.js.map": "static/js/main.16fdaa2c.js.map"
+  "main.js": "static/js/main.46665ef7.js",
+  "main.js.map": "static/js/main.46665ef7.js.map",
+  "static/media/roboto.black.ttf": "static/media/roboto.black.f3fa86ed.ttf",
+  "static/media/roboto.bold.ttf": "static/media/roboto.bold.e31fcf18.ttf",
+  "static/media/roboto.light.ttf": "static/media/roboto.light.46e48ce0.ttf",
+  "static/media/roboto.medium.ttf": "static/media/roboto.medium.894a2ede.ttf",
+  "static/media/roboto.regular.ttf": "static/media/roboto.regular.df7b648c.ttf"
 }
