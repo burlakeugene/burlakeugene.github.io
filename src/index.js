@@ -13,9 +13,6 @@ import Layout from './layout/Main';
 import {loadSwitch} from './actions/app';
 
 class App extends Component{
-    constructor(props){
-        super(props);       
-    }
     render(){
         let {loading = false} = this.props;
         return(        

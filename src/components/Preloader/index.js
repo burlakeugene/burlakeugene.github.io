@@ -44,19 +44,8 @@ class Preloader extends Component{
         setTimeout(() => {
             this.setState({
                 first: false
-            }, () => {
-                setTimeout(() => {
-                    store.dispatch(loadSwitch(false));
-                }, 2500);
             })
-        }, 500);
-        setTimeout(() => {
-            store.dispatch(loadSwitch(true));
-        }, 6000)
-        setTimeout(() => {
-            store.dispatch(loadSwitch(false));
-        }, 8500)
-        
+        }, 500);        
     }
     render(){
         let {loading, hidden, full, first} = this.state,
@@ -64,9 +53,14 @@ class Preloader extends Component{
         if(first) className += ' preloader__first';
         if(loading) className += ' preloader__loading';
         if(full) className += ' preloader__full';
+        if(first) {
+            setTimeout(() => {
+                store.dispatch(loadSwitch(false))
+            }, 3000);
+        }
         return(
             <div className={className}>
-                <div className="preloader-inner"></div>
+                <div className="preloader-inner"></div>                
             </div>
         )
     }

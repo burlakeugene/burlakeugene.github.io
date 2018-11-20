@@ -1,12 +1,8 @@
 @import 'variables.scss';
+@import '../fonts/roboto/roboto.css';
 
 *{
     box-sizing: border-box;
-}
-
-body{
-    margin:0;
-    padding:0;
 }
 
 .container{
@@ -44,11 +40,11 @@ body{
 
 body{
     background-color: $app-background;
-    color: $color-white;
+    color: $app-color;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     height: 100%;
+    font-family: 'roboto-light';
 }
 
 .app{
