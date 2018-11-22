@@ -48,7 +48,7 @@ class Preloader extends Component{
         }, 500);        
     }
     render(){
-        let {loading, hidden, full, first} = this.state,
+        let {loading, full, first} = this.state,
             className = 'preloader';
         if(first) className += ' preloader__first';
         if(loading) className += ' preloader__loading';
