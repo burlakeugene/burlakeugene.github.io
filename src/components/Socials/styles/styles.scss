@@ -97,6 +97,19 @@
                     }
                 }
             }
+            &__instagram{
+                i{
+                    span{
+                        background-image: url(icons/instagram.svg);
+                    }
+                    &:before{
+                        background-image: url(icons/instagram-red.svg);
+                    }
+                    &:after{
+                        background-image: url(icons/instagram-green.svg);
+                    }
+                }
+            }
             &:hover{
                 background-size: 28px 28px;
                 i{

@@ -10,4 +10,8 @@ export default [{
                     name: 'Github',
                     systemName: 'github',
                     link: 'https://github.com/eugeneburlak'
+                },{
+                    name: 'Instagram',
+                    systemName: 'instagram',
+                    link: 'https://www.instagram.com/eugeneburlak/'
                 }]
