@@ -14,17 +14,17 @@ import Layout from './layout/Main';
 class App extends Component{
     render(){
         let {loading = false} = this.props;
-        return(        
+        return(
             <div className={loading ? 'app-wrapper' : 'app-wrapper app-wrapper__loaded'}>
-                <Preloader loading={loading} /> 
-                <ConnectedRouter history={history}>                
-                    <Switch>   
+                <Preloader loading={loading} />
+                <ConnectedRouter history={history}>
+                    <Switch>
                         <Route exact path="/" component={Layout({main:Main})} />
                         <Route exact path="/about" component={Layout({main:About})} />
                     </Switch>
                 </ConnectedRouter>
-            </div> 
-        )       
+            </div>
+        )
     }
 }
 
@@ -39,6 +39,6 @@ App = connect(mapStateToProps)(App);
 ReactDOM.render(
     <Provider store={store}>
         <App />
-    </Provider>, 
+    </Provider>,
 document.getElementById('app'));
 registerServiceWorker();
