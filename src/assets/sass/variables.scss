@@ -1,6 +1,11 @@
 $app-background: #fff;
-$app-color: #2b2c31;
+$panel-background: #0c0c0c;
+$theme-color: #fff;
+
 $color-black: #000;
 $color-white: #fff;
-$preloader-background: #2b2c31;
-$preloader-dot-color: #fff;
+
+$app-color: $color-black;
+$preloader-background: $app-background;
+$preloader-dot-color: $panel-background;
+

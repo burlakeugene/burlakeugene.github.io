@@ -40,7 +40,7 @@
 }
 
 body{
-    background-color: $app-background;
+    background-color: $panel-background;
     color: $app-color;
     margin: 0;
     padding: 0;
@@ -49,6 +49,6 @@ body{
 }
 
 .app{
-    background-color: $app-background;
+    background-color: $panel-background;
     height: 100%;
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {loadSwitch} from '../../actions/app';
 import {store} from '../../store/';
-import './sass/styles.scss';
+import './styles/styles.scss';
 
 class Preloader extends Component{
     constructor(props){
@@ -24,10 +24,10 @@ class Preloader extends Component{
                         this.setState({
                             full: false,
                         })
-                    }, 300)                    
+                    }, 300)
                 });
             }
-            else{                
+            else{
                 this.setState({
                     full: true
                 },() => {
@@ -45,7 +45,7 @@ class Preloader extends Component{
             this.setState({
                 first: false
             })
-        }, 500);        
+        }, 500);
     }
     render(){
         let {loading, full, first} = this.state,
@@ -60,7 +60,7 @@ class Preloader extends Component{
         }
         return(
             <div className={className}>
-                <div className="preloader-inner"></div>                
+                <div className="preloader-inner"></div>
             </div>
         )
     }

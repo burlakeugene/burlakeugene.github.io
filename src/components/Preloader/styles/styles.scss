@@ -31,9 +31,9 @@
             height: 100%;
             background-color: $preloader-dot-color;
             border-radius: 50%;
-            animation: 1s linear infinite pulse;            
+            animation: 1s linear infinite pulse;
         }
-    }    
+    }
     &__first{
         .preloader{
             &-inner{
@@ -59,7 +59,7 @@
 @keyframes pulse {
     0% {
         @include transform(scale(1));
-    }   
+    }
     25% {
         @include transform(scale(1.4));
     }

@@ -26,15 +26,13 @@ class App extends Component{
             </div>
         )
     }
-}
-
-const mapStateToProps = (state, ownProps) => {
-    return {
-      loading: state.appReducer.loading
-    }
 };
 
-App = connect(mapStateToProps)(App);
+App = connect((state) => {
+    return {
+        loading: state.appReducer.loading
+    }
+})(App);
 
 ReactDOM.render(
     <Provider store={store}>

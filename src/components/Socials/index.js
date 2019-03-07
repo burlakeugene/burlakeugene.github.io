@@ -29,10 +29,9 @@ class Socials extends Component{
             let targetIcon = target.querySelector('i');
             target.style.transform = 'translate(0px,0px) scale(1)';
             target.style.webkitTransform = 'translate(0px,0px) scale(1)';
-    
             targetIcon.style.transform = 'translate(0px,0px) scale(1)';
             targetIcon.style.webkitTransform = 'translate(0px,0px) scale(1)';
-        });       
+        });
     }
 
     componentDidMount(){
@@ -59,10 +58,10 @@ class Socials extends Component{
                 {data.map((item, index) => {
                     return(
                         <div key={index} className="socials-item">
-                            <a  
-                                className={'socials-item-icon socials-item-icon__'+item.systemName} 
+                            <a
+                                className={'socials-item-icon socials-item-icon__'+item.systemName}
                                 href={item.link}
-                                target="_blank"   
+                                target="_blank"
                             >
                                 <i>
                                     <span></span>
@@ -71,7 +70,7 @@ class Socials extends Component{
                             </a>
                         </div>
                     )
-                })}           
+                })}
             </div>
         )
     }
