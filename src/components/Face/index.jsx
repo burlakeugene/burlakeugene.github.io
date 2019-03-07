@@ -10,6 +10,7 @@ export default class Face extends Component {
 					height: '200px',
 					backgroundColor: '#000',
 					backgroundImage: 'url('+ image +')'
+					
 				}}>
 				</Blob>
 			</div>
