@@ -1,6 +1,6 @@
 @import 'variables.scss';
-@import '../fonts/roboto/roboto.css';
 @import 'animations.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{
     box-sizing: border-box;
@@ -9,7 +9,6 @@
 .container{
     margin: 0 auto;
     width: 100%;
-    max-width: 991px;
     padding: 0 15px;
 }
 
@@ -45,7 +44,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'roboto-light';
+    font-family: 'Roboto', sans-serif;
 }
 
 .app{

@@ -1,14 +1,33 @@
 import React, {Component} from 'react';
-import '../assets/sass/main.scss'
+import './styles/styles.scss';
 
 let Layout = function(components) {
     return class extends Component{
         render() {
-            let {main, sidebar} = components;
+            let {main, sidebar, header} = components;
             return (
                 <div className="app">
-                    {main && main()}
-                    {sidebar && sidebar()}
+                    {header &&
+                        (typeof(header) === 'function' ?
+                            <components.header />
+                            :
+                            header()
+                        )
+                    }
+                    {main &&
+                        (typeof(main) === 'function' ?
+                            <components.main />
+                            :
+                            main()
+                        )
+                    }
+                    {sidebar &&
+                        (typeof(sidebar) === 'function' ?
+                            <components.sidebar />
+                            :
+                            sidebar()
+                        )
+                    }
                 </div>
             )
         }

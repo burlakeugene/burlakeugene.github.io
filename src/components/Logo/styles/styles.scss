@@ -1,0 +1,14 @@
+@import '../../../assets/sass/variables.scss';
+@import '../../../assets/sass/mixins.scss';
+
+.logo{
+    width: 100px;
+    height: 100px;
+    background-color: $app-background;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 80%);
+    position: relative;
+    .blob{
+        position: absolute;
+        top: 20px;
+    }
+}

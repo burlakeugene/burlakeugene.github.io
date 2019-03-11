@@ -8,7 +8,6 @@ export default class Face extends Component {
 				<Blob styles={{
 					width: '200px',
 					height: '200px',
-					backgroundColor: '#000',
 					backgroundImage: 'url('+ image +')'
 				}}>
 				</Blob>
