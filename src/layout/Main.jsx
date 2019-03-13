@@ -7,27 +7,33 @@ let Layout = function(components) {
             let {main, sidebar, header} = components;
             return (
                 <div className="app">
-                    {header &&
-                        (typeof(header) === 'function' ?
-                            <components.header />
-                            :
-                            header()
-                        )
-                    }
-                    {main &&
-                        (typeof(main) === 'function' ?
-                            <components.main />
-                            :
-                            main()
-                        )
-                    }
                     {sidebar &&
-                        (typeof(sidebar) === 'function' ?
-                            <components.sidebar />
-                            :
-                            sidebar()
-                        )
+                        <div className="app-sidebar">
+                            {
+                                    (typeof(sidebar) === 'function' ?
+                                    <components.sidebar />
+                                    :
+                                    sidebar()
+                                )
+                            }
+                        </div>
                     }
+                    <div className="app-main">
+                        {header &&
+                            (typeof(header) === 'function' ?
+                                <components.header />
+                                :
+                                header()
+                            )
+                        }
+                        {main &&
+                            (typeof(main) === 'function' ?
+                                <components.main />
+                                :
+                                main()
+                            )
+                        }
+                    </div>
                 </div>
             )
         }

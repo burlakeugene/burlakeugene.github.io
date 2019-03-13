@@ -1,13 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
-import Socials from '../../components/Socials';
-import Face from '../../components/Face';
+import Me from '../../components/Me';
+import './styles/styles.scss';
 const index = () => {
 	return (
-		<div>
-			<Socials />
-			<Face />
-		</div>
+		<main class="main">
+			<Me />
+		</main>
 	)
 }
 

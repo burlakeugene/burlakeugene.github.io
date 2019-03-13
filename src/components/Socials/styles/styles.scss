@@ -14,7 +14,7 @@
             height: 50px;
             background-color: $app-color;
             border-radius: 50%;
-            display: block;
+            display: inline-block;
             position: relative;
             box-shadow: 0 0 0 1px $app-color;
             @include animated;
@@ -123,6 +123,16 @@
             }
             &:active{
                 box-shadow: 0 0 0 3px $app-color;
+            }
+        }
+    }
+    &__vertical{
+        .socials{
+            text-align: center;
+            &-item{
+                display: block;
+                margin: 5px;
+                text-align: center;
             }
         }
     }

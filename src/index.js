@@ -7,8 +7,10 @@ import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'react-router-redux';
 import { connect } from 'react-redux';
 import Preloader from './components/Preloader';
+
 import Main from './containers/Main';
-import Header from './components/Header';
+import Header from './containers/Header';
+import Sidebar from './containers/Sidebar';
 import About from './containers/About';
 import Layout from './layout/Main';
 
@@ -20,7 +22,7 @@ class App extends Component{
                 <Preloader loading={loading} />
                 <ConnectedRouter history={history}>
                     <Switch>
-                        <Route exact path="/" component={Layout({main: Main, header: Header})} />
+                        <Route exact path="/" component={Layout({sidebar: Sidebar, main: Main})} />
                         <Route exact path="/about" component={Layout({main:About})} />
                     </Switch>
                 </ConnectedRouter>

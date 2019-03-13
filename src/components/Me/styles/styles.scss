@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:700');
+.me{
+    position: relative;
+    display: inline-block;
+    padding-right: 150px;
+    h1,h2{
+        font-family: 'Dosis', sans-serif;
+        line-height: 0.02em;
+        font-size: 90px;
+        position: relative;
+        z-index: 2;
+        mix-blend-mode: difference;
+        color: #fff;
+    }
+    &-photo{
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        z-index: 1;
+        transform: translateY(-50%);
+    }
+}

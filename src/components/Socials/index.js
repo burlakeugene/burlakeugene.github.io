@@ -16,8 +16,8 @@ class Socials extends Component{
         target.style.webkitTransform = 'translate('+ offset.x +'px,'+ offset.y +'px) scale('+ 1.1 +')';
         document.querySelectorAll('.socials-item-icon').forEach((e, i) => {
             if(e !== target){
-                e.style.transform = 'translate('+ offset.x / 2 +'px, 0px) scale('+ 0.9 +')';
-                e.style.webkitTransform = 'translate('+ offset.x / 2 +'px, 0px) scale('+ 0.9 +')';
+                e.style.transform = 'translate('+ offset.x / 2 +'px, '+ offset.y / 2 +'px) scale('+ 0.9 +')';
+                e.style.webkitTransform = 'translate('+ offset.x / 2 +'px, '+ offset.y / 2 +'px) scale('+ 0.9 +')';
             }
         })
         targetIcon.style.transform = 'translate('+ offset.x +'px,'+ offset.y +'px) scale('+ 1.1 +')';
@@ -53,8 +53,11 @@ class Socials extends Component{
     }
 
     render(){
+        let className = 'socials';
+        if(this.props.vertical) className += ' socials__vertical';
+        if(this.props.light) className += ' socials__light';
         return(
-            <div className="socials">
+            <div className={className}>
                 {data.map((item, index) => {
                     return(
                         <div key={index} className="socials-item">
