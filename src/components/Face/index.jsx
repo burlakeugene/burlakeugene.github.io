@@ -9,8 +9,7 @@ export default class Face extends Component {
 					width: '200px',
 					height: '200px',
 					backgroundImage: 'url('+ image +')'
-				}}>
-				</Blob>
+				}} />
 			</div>
 		)
 	}

@@ -5,9 +5,21 @@ export default class Me extends Component {
 	render() {
 		return (
 			<div className="me">
-				<h2 className="me-firstname">Eugene</h2>
-				<h1 className="me-lastname">Burlak</h1>
-				<Face className="me-photo" />
+				<div className="me-top">
+					<div className="me-name">
+						<h2>Eugene</h2>
+						<h1>Burlak</h1>
+					</div>
+					<Face className="me-photo" />
+				</div>
+				<div className="me-description">
+					<p>
+						Hello, i am middle frontend developer, <br />with 5+ years of experience.
+					</p>
+					<p>
+						I develop high-quality, adaptive and cross-browser (reasonably) web applications.
+					</p>
+				</div>
 			</div>
 		)
 	}

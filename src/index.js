@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import Preloader from './components/Preloader';
 
 import Main from './containers/Main';
-import Header from './containers/Header';
 import Sidebar from './containers/Sidebar';
 import About from './containers/About';
 import Layout from './layout/Main';

@@ -3,7 +3,7 @@ import Me from '../../components/Me';
 import './styles/styles.scss';
 const index = () => {
 	return (
-		<main class="main">
+		<main className="main">
 			<Me />
 		</main>
 	)
