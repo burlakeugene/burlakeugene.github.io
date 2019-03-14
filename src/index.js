@@ -6,7 +6,6 @@ import registerServiceWorker from './registerServiceWorker';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'react-router-redux';
 import { connect } from 'react-redux';
-import { Detection } from 'burlak';
 import Preloader from './components/Preloader';
 import Cursor from './components/Cursor';
 
@@ -15,15 +14,15 @@ import Sidebar from './containers/Sidebar';
 import About from './containers/About';
 import Layout from './layout/Main';
 
-const Detect = new Detection();
+import {isMobile} from './helpers';
+const mobile = isMobile();
 class App extends Component{
 
     render(){
         let {loading = false} = this.props,
-            isMobile = Detect.isMobile(),
             className = 'app-wrapper';
         if(!loading) className += ' app-wrapper__loaded';
-        if(isMobile) className += ' app-wrapper__mobile';
+        if(mobile) className += ' app-wrapper__mobile';
         return(
             <div className={className}>
                 <Preloader loading={loading} />
