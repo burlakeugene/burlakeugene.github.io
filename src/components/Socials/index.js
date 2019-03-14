@@ -9,8 +9,8 @@ class Socials extends Component{
             targetData = target.getBoundingClientRect(),
             targetIcon = target.querySelector('i'),
             offset = {
-                x: (e.pageX - (targetData.left + (targetData.width / 2))) / 4 * -1,
-                y: (e.pageY - (targetData.top + (targetData.height / 2))) / 4 * -1
+                x: ((e.pageX - window.scrollX) - (targetData.left + (targetData.width / 2))) / 4 * -1,
+                y: ((e.pageY - window.scrollY) - (targetData.top + (targetData.height / 2))) / 4 * -1
             };
         target.style.transform = 'translate('+ offset.x +'px,'+ offset.y +'px) scale('+ 1.1 +')';
         target.style.webkitTransform = 'translate('+ offset.x +'px,'+ offset.y +'px) scale('+ 1.1 +')';

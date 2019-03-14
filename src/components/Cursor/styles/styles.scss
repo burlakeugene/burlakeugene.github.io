@@ -1,0 +1,32 @@
+body.custom-cursor{
+    cursor: none;
+    & *{
+        &, &:hover{
+            cursor: none;
+        }
+    }
+}
+
+.app-wrapper__mobile{
+    .cursor{
+        display: none;
+    }
+}
+
+.cursor{
+    position: fixed;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: all 0.1s;
+    &__mini{
+        width: 5px;
+        height: 5px;
+        transition: all 0s;
+    }
+}

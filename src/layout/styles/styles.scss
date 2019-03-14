@@ -4,6 +4,10 @@
 
 .app{
     padding-left: 150px;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    overflow: hidden;
     &-sidebar{
         left: 0;
         width: 100px;
@@ -11,5 +15,11 @@
         position: fixed;
         text-align: center;
         @include animated;
+    }
+}
+
+@media(max-width: 600px){
+    .app{
+        padding-left: 100px;
     }
 }
