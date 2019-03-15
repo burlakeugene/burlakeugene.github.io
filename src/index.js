@@ -2,37 +2,34 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {store, history} from './store/';
 import { Provider } from 'react-redux';
-import registerServiceWorker from './registerServiceWorker';
-import {Route, Switch} from 'react-router';
-import {ConnectedRouter} from 'react-router-redux';
+import * as serviceWorker from './serviceWorker';
 import { connect } from 'react-redux';
 import Preloader from './components/Preloader';
 import Cursor from './components/Cursor';
-
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Main from './containers/Main';
 import Sidebar from './containers/Sidebar';
 import About from './containers/About';
 import Layout from './layout/Main';
 
-import {isMobile} from './helpers';
-const mobile = isMobile();
+import {Detection} from 'burlak';
+const Detect = new Detection();
 class App extends Component{
 
     render(){
         let {loading = false} = this.props,
+            mobile = Detect.isMobile(),
             className = 'app-wrapper';
         if(!loading) className += ' app-wrapper__loaded';
-        if(mobile) className += ' app-wrapper__mobile';
         return(
             <div className={className}>
                 <Preloader loading={loading} />
-                <Cursor />
-                <ConnectedRouter history={history}>
-                    <Switch>
+                {!mobile && <Cursor />}
+                <Router>
+                    <div>
                         <Route exact path="/" component={Layout({sidebar: Sidebar, main: Main})} />
-                        <Route exact path="/about" component={Layout({main:About})} />
-                    </Switch>
-                </ConnectedRouter>
+                    </div>
+                </Router>
             </div>
         )
     }
@@ -49,4 +46,4 @@ ReactDOM.render(
         <App />
     </Provider>,
 document.getElementById('app'));
-registerServiceWorker();
+serviceWorker.unregister();
