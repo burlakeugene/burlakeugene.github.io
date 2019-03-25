@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {store, history} from './store/';
+import {store} from './store/';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { connect } from 'react-redux';
 import Preloader from './components/Preloader';
 import Cursor from './components/Cursor';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Main from './containers/Main';
 import Sidebar from './containers/Sidebar';
-import About from './containers/About';
 import Layout from './layout/Main';
 
 import {Detection} from 'burlak';
+
 const Detect = new Detection();
 class App extends Component{
 
