@@ -14,7 +14,7 @@ export default class Me extends Component {
 				</div>
 				<div className="me-description">
 					<p>
-						Hello, i am middle frontend developer, <br />with 5+ years of experience.
+						Hello, i am frontend developer, <br />with 5+ years of experience.
 					</p>
 					<p>
 						I develop high-quality, adaptive and cross-browser (reasonably) web applications.
