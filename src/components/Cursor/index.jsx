@@ -12,6 +12,7 @@ class Cursor extends Component {
         this.move = this.move.bind(this);
         this.down = this.down.bind(this);
         this.up = this.up.bind(this);
+        this.wheel = this.wheel.bind(this);
     }
     componentDidMount(){
         this.addCursor();
@@ -26,6 +27,7 @@ class Cursor extends Component {
         document.addEventListener('mouseup', this.up);
         document.addEventListener('touchstart', this.down);
         document.addEventListener('touchend', this.up);
+        document.addEventListener('wheel', this.wheel);
     }
     removeCursor(){
         document.body.classList.remove('custom-cursor');
@@ -34,6 +36,7 @@ class Cursor extends Component {
         document.removeEventListener('mouseup', this.up);
         document.removeEventListener('touchstart', this.down);
         document.removeEventListener('touchend', this.up);
+        document.removeEventListener('wheel', this.wheel);
     }
     checkCursorTarget(target, tag, state){
         if(
@@ -69,6 +72,24 @@ class Cursor extends Component {
     up(e){
         this.checkCursorState(e);
     }
+    wheel(e){
+        clearTimeout(this.timeout);
+        let y = e.deltaY,
+            x = e.deltaX;
+        if(parseInt(y) !== 0){
+            y > 20 && this.changeCursorState('scroll-down');
+            y < -20 && this.changeCursorState('scroll-up');
+        }
+        else{
+            if(parseInt(x) !== 0){
+                x > 20 && this.changeCursorState('scroll-right');
+                x < -20 && this.changeCursorState('scroll-left');
+            }
+        }
+        this.timeout = setTimeout(() => {
+            this.changeCursorState('default');
+        }, 600);
+    }
     render() {
         let {x, y, state} = this.state,
             styles = {
@@ -76,9 +97,9 @@ class Cursor extends Component {
                 top: y+'px'
             };
         return (
-            <div className="cursors">
+            <div className={'cursors cursors__'+state}>
                 <div className="cursor cursor__mini" style={styles}></div>
-                <div className={'cursor cursor__state cursor__state__'+state} style={styles}></div>
+                <div className={'cursor cursor__big'} style={styles}></div>
             </div>
         )
     }

@@ -21,16 +21,86 @@ body.custom-cursor{
         height: 5px;
         transition: all 0s;
     }
-    &__state{
-        width: 30px;
-        height: 30px;
-        will-change: left, top;
-        transition: left 0.1s, top 0.1s, transform 0.6s;
-        &__click{
-            transform: translate(-50%, -50%) scale(2);
+}
+
+.cursors{
+    .cursor{
+        &__mini{
+            transition: margin-top 0.6s, margin-left 0.6s;
         }
-        &__link{
-            transform: translate(-50%, -50%) scale(1.5);
+        &__big{
+            width: 30px;
+            height: 30px;
+            will-change: left, top, width, height, transform;
+            transition: left 0.1s, top 0.1s, transform 0.6s, height 0.6s, width 0.6s, border-radius 0.6s;
+        }
+    }
+    &__click{
+        .cursor{
+            &__mini{
+            }
+            &__big{
+                transform: translate(-50%, -50%) scale(2);
+            }
+        }
+    }
+    &__link{
+        .cursor{
+            &__mini{
+            }
+            &__big{
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+        }
+    }
+    &__scroll-down,
+    &__scroll-up{
+        .cursor{
+            &__mini{
+            }
+            &__big{
+                height: 60px;
+                border-radius: 25px;
+            }
+        }
+    }
+    &__scroll-left,
+    &__scroll-right{
+        .cursor{
+            &__mini{
+            }
+            &__big{
+                width: 60px;
+                border-radius: 25px;
+            }
+        }
+    }
+    &__scroll-down{
+        .cursor{
+            &__mini{
+                margin-top: 15px;
+            }
+        }
+    }
+    &__scroll-up{
+        .cursor{
+            &__mini{
+                margin-top: -15px;
+            }
+        }
+    }
+    &__scroll-left{
+        .cursor{
+            &__mini{
+                margin-left: -15px;
+            }
+        }
+    }
+    &__scroll-right{
+        .cursor{
+            &__mini{
+                margin-left: 15px;
+            }
         }
     }
 }
