@@ -6,3 +6,14 @@ export function loadSwitch(bool = true){
 		}
 	}
 }
+
+// export function thunkTest(){
+// 	return function(dispatch){
+// 		dispatch({
+// 			type: 'LOAD_SWITCH',
+// 			payload: {
+// 				loading: true
+// 			}
+// 		})
+// 	}
+// }
