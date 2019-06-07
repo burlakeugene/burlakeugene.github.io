@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Provider, connect } from "react-redux";
 import { store } from "./redux/store/";
@@ -14,16 +14,22 @@ import Main from "containers/Main";
 import Sidebar from "containers/Sidebar";
 
 import { Detection } from "burlak";
+import {loadSwitch} from 'actions/App';
 const Detect = new Detection();
 class App extends Component {
+  componentDidMount(){
+    setTimeout(() => {
+      store.dispatch(loadSwitch(false));
+    }, 3000);
+  }
   render() {
-    let { loading = false } = this.props,
+    let { loadingShow = false, loadingMini = false } = this.props,
       mobile = Detect.isMobile(),
       className = "app-wrapper";
-    if (!loading) className += " app-wrapper__loaded";
+    if (!loadingShow) className += " app-wrapper__loaded";
     return (
       <div className={className}>
-        <Preloader loading={loading} />
+        <Preloader mini={loadingMini} loading={loadingShow} />
         {!mobile && <Cursor />}
         <Router>
           <Switch>
@@ -41,7 +47,8 @@ class App extends Component {
 
 App = connect(state => {
   return {
-    loading: state.appReducer.loading
+    loadingShow: state.appReducer.loading.show || false,
+    loadingMini: state.appReducer.loading.mini || false
   };
 })(App);
 
