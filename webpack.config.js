@@ -62,6 +62,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ['.js', '.jsx'],
     alias: {
       components: ROOT_DIR + "/src/app/components",
       containers: ROOT_DIR + "/src/app/containers",
