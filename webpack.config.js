@@ -15,7 +15,6 @@ function getJSONConfig() {
 }
 
 const JSON_CONFIG = getJSONConfig();
-
 const isDevelopment = process.env.WEBPACK_DEV_SERVER === 'true';
 
 module.exports = {
@@ -28,7 +27,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js(x)?$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
@@ -61,10 +60,22 @@ module.exports = {
         ]
       },
       {
-        test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
-        loader: 'file-loader?name=[name].[ext]',
+        test: /\.(svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            query: {
+              name: '[name]-[hash].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.jpe?g$|\.ico$|\.gif$|\.pdf$|\.png$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: 'file-loader',
         options: {
-          outputPath: 'media'
+          outputPath: 'media',
+          name: '[name].[ext]'
         }
       }
     ]
@@ -76,7 +87,8 @@ module.exports = {
       containers: ROOT_DIR + '/src/app/containers',
       actions: ROOT_DIR + '/src/app/actions',
       store: ROOT_DIR + '/src/app/redux/store',
-      layouts: ROOT_DIR + '/src/app/layouts'
+      layouts: ROOT_DIR + '/src/app/layouts',
+      assets: ROOT_DIR + '/src/assets'
     }
   },
   devServer: {

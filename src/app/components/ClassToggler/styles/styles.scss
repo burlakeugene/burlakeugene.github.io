@@ -1,0 +1,10 @@
+.fluid{
+  transition: all 0.6s;
+  opacity: 0;
+  &__in-view{
+    opacity: 1;
+  }
+  &__out-view{
+    opacity: 0;
+  }
+}

@@ -1,3 +1,128 @@
-header{
-    padding: 15px 0;
+.app {
+  &-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    height: 80px;
+    transition: height 1s;
+    z-index: 3;
+    &-content {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      transition: all 1s;
+      transition-delay: 0s;
+      padding: 15px 50px 15px 130px;
+      opacity: 0;
+      visibility: hidden;
+      color: #fff;
+      text-align: center;
+      &-scroller{
+        overflow: hidden;
+        height: 100%;
+      }
+    }
+    &__preloaderShow {
+    }
+    &-inner {
+      position: relative;
+      height: 100%;
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 120px;
+        height: 100%;
+        background-color: #fff;
+        z-index: 1;
+        transition: 1s;
+      }
+      &:after {
+        left: auto;
+        right: 0;
+      }
+    }
+    .hamburger {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transition: all 1s;
+      transform: translateY(-50%);
+      transition-delay: 1s;
+      opacity: 1;
+      visibility: visible;
+    }
+    .logo,
+    .hamburger {
+      z-index: 4;
+    }
+    &-blob {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(calc(-40%), -70%) scale(1);
+      transition: all 2s;
+      z-index: 2;
+      will-change: transform;
+      .blob {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+      }
+    }
+    &__wide {
+      height: 100%;
+      .app-header {
+        &-inner {
+          &:before,
+          &:after {
+            left: 0;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .hamburger {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.1s;
+        transition-delay: 0s;
+      }
+    }
+    &__navigation {
+      height: 100%;
+      transition-delay: 0.5s;
+      .hamburger {
+        transition: all 0s;
+        transition-delay: 0;
+        top: 25px;
+      }
+      .app-header-content{
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 1s;
+        &-scroller{
+          overflow: auto;
+        }
+      }
+    }
+    &__wide,
+    &__navigation {
+      .app-header-blob {
+        transform: translate(0%, -50%) scale(20);
+      }
+    }
+  }
 }

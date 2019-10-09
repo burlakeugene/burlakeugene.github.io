@@ -1,16 +1,90 @@
-@import '../../../../assets/sass/variables.scss';
-@import '../../../../assets/sass/mixins.scss';
-
-.logo{
-    width: 70px;
-    height: 70px;
-    background-color: $app-background;
-    clip-path: polygon(0% 0%, 100% 0%, 50% 80%);
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    .blob{
-        position: absolute;
-        top: 20%;
+.logo {
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: 0 50%;
+  transform: scale(1) translate(0, -50%);
+  transition: all 1s;
+  cursor: pointer;
+  mix-blend-mode: difference;
+  font-family: Montserrat;
+  font-weight: 700;
+  div {
+    color: #fff;
+    span {
+      display: inline-block;
+      overflow: hidden;
+      transition: 0.5s;
+      width: 50px;
+      font-size: 30px;
+      &:first-child {
+        width: 102px;
+      }
+      &:last-child {
+        width: 8px;
+      }
     }
+  }
+  &__loading {
+    div {
+      span {
+        &:last-child {
+          animation-name: bounce;
+          animation-duration: 1.5s;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+  }
+  &__minify {
+    div {
+      span {
+        &:first-child {
+          width: 20px;
+        }
+      }
+    }
+    &:not(.logo__centered):hover {
+      div {
+        span {
+          &:first-child {
+            width: 102px;
+          }
+          &:last-child {
+            width: 8px;
+          }
+        }
+      }
+    }
+  }
+  &__centered {
+    top: 50%;
+    left: 50%;
+    transform: scale(2) translate(-50%, -50%);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  57% {
+    transform: translateY(-15%);
+  }
+  64% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

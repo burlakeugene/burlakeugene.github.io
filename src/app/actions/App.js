@@ -1,18 +1,24 @@
-export function loadSwitch(show, mini){
-	return {
-		type: 'LOAD_SWITCH',
-		payload: {
-			show,
-			mini
-		}
-	}
-}
+import { Detection } from 'burlak';
 
-export function testFunc(){
-	return {
-		type: 'INC'
-	}
-}
+export const loadSwitch = show => {
+  return {
+    type: 'LOAD_SWITCH',
+    payload: {
+      show
+    }
+  };
+};
+
+export const testFunc = () => {
+  return {
+    type: 'INC'
+  };
+};
+
+export const isMobile = () => {
+  const Detect = new Detection();
+  return Detect.isMobile();
+};
 
 // export function thunkTest(){
 // 	return function(dispatch){

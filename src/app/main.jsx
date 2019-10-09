@@ -1,44 +1,57 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import { Provider, connect } from "react-redux";
-import { store } from "./redux/store/";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import * as serviceWorker from "./serviceWorker";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Provider, connect } from 'react-redux';
+import { store } from 'store';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
+import { isMobile } from 'actions/App';
 
-import Layout from "layouts/Main";
+import Index from 'containers/Index';
+import Header from 'containers/Header';
+import Footer from 'containers/Footer';
+import NotFound from 'containers/NotFound';
 
-import Preloader from "components/Preloader";
-import Cursor from "components/Cursor";
+import Cursor from 'components/Cursor';
+import ScrollBar from 'components/ScrollBar';
 
-import Main from "containers/Main";
-import Sidebar from "containers/Sidebar";
+import { loadOff, loadOn } from 'actions/Loading';
 
-import { Detection } from "burlak";
-import {loadSwitch} from 'actions/App';
-const Detect = new Detection();
+import 'assets/sass/main.scss';
+
 class App extends Component {
-  componentDidMount(){
+  componentDidMount() {
     setTimeout(() => {
-      store.dispatch(loadSwitch(false));
+      loadOff();
     }, 3000);
   }
   render() {
-    let { loadingShow = false, loadingMini = false } = this.props,
-      mobile = Detect.isMobile(),
-      className = "app-wrapper";
-    if (!loadingShow) className += " app-wrapper__loaded";
+    let {
+      contentHidden = false,
+      appLoading = false,
+      headerWide = false
+    } = this.props;
     return (
-      <div className={className}>
-        <Preloader mini={loadingMini} loading={loadingShow} />
-        {!mobile && <Cursor />}
+      <div
+        className={[
+          'app',
+          !appLoading && !headerWide ? 'app__loaded' : 'app__loading'
+        ].join(' ')}
+      >
+        {!isMobile() && <Cursor />}
+        {!isMobile() && <ScrollBar scrollEnabled={!contentHidden} />}
         <Router>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              component={Layout({ sidebar: Sidebar, main: Main })}
-            />
-          </Switch>
+          <Header />
+          <div
+            className={[
+              'app-body',
+              !contentHidden ? 'app-body__visible' : 'app-body__hidden'
+            ].join(' ')}
+          >
+            <Switch>
+              <Route exact path="/" component={Index} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
         </Router>
       </div>
     );
@@ -47,8 +60,9 @@ class App extends Component {
 
 App = connect(state => {
   return {
-    loadingShow: state.appReducer.loading.show || false,
-    loadingMini: state.appReducer.loading.mini || false
+    appLoading: state.appReducer.loading.appLoading,
+    headerWide: state.appReducer.loading.headerWide,
+    contentHidden: state.appReducer.loading.contentHidden
   };
 })(App);
 
@@ -56,6 +70,6 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("app")
+  document.getElementById('app')
 );
 serviceWorker.unregister();

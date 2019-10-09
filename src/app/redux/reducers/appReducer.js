@@ -1,17 +1,20 @@
 import initialState from './defaultsState/app.js';
 
 var appReducer = function(state = initialState, action) {
-    let newState = Object.assign({}, state);
-    if (action.type === 'LOAD_SWITCH') {
-        if(typeof action.payload.show !== 'undefined' && state.loading.show !== action.payload.show) newState.loading.show = action.payload.show;
-        if(typeof action.payload.mini !== 'undefined' && state.loading.mini !== action.payload.mini) newState.loading.mini = action.payload.mini;
-        return newState;
+  let newState = Object.assign({}, state);
+  if (action.type === 'LOAD_CHANGE') {
+    action = action.payload;
+    newState.loading = {
+      appLoading: action.hasOwnProperty('appLoading') ? action.appLoading : state.loading.appLoading,
+      logoMini: action.hasOwnProperty('logoMini') ? action.logoMini : state.loading.logoMini,
+      logoLoading: action.hasOwnProperty('logoLoading') ? action.logoLoading : state.loading.logoLoading,
+      preloaderShow: action.hasOwnProperty('preloaderShow') ? action.preloaderShow : state.loading.preloaderShow,
+      headerWide: action.hasOwnProperty('headerWide') ? action.headerWide : state.loading.headerWide,
+      contentHidden: action.hasOwnProperty('contentHidden') ? action.contentHidden : state.loading.contentHidden
     }
-    if (action.type === 'INC') {
-        newState.test++;
-        return newState;
-    }
-    return state;
-}
+    return newState;
+  }
+  return state;
+};
 
 export default appReducer;
