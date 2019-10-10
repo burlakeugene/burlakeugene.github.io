@@ -24,7 +24,7 @@ class Hero extends Component {
               defaultClass="hero-line hero-line__big"
               toggleClass={contentHidden ? '' : 'hero-line__visible'}
             >
-              <div>Front-end</div>
+              <div>Frontend</div>
             </ClassToggler>
             <ClassToggler
               defaultClass="hero-label"
