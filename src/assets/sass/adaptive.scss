@@ -31,6 +31,12 @@
   .app-body{
     padding: 15px 20px;
   }
+  .hero-line{
+    padding: 0;
+  }
+  .hero-label{
+    padding: 0 12px;
+  }
   .hero-label-inner,
   .hero-line div{
     &,&:first-child{
@@ -44,6 +50,11 @@
   }
   .hero-line:not(.hero-line__big){
     top: 0;
+    div{
+      &:last-child{
+        margin-left: 1px;
+      }
+    }
   }
   .hero-left, .hero-right{
     width: 100%;

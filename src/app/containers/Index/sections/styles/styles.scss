@@ -64,8 +64,8 @@
   }
   &-line {
     opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.8s;
+    transform: translateX(100px);
+    transition: all 2s;
     padding: 0 15px 28px 15px;
     font-weight: 100;
     letter-spacing: -0.1em;
@@ -81,11 +81,8 @@
       }
     }
     &__big{
-      transition-delay: 0.5s;
       padding: 0 15px;
       text-align: right;
-      transform: translateX(70%);
-      transition: all 2s;
       div{
         &, &:first-child{
           font-size: 70px;

@@ -18,23 +18,27 @@ class Header extends Component {
   }
   navigationToggle() {
     if (!this.state.navigation) {
-      this.setState(
-        {
-          navigation: true
-        },
-        () => {
-          contentHidden(true);
-          logoMini(false);
-        }
-      );
+      contentHidden(true);
+      setTimeout(() => {
+        this.setState(
+          {
+            navigation: true
+          },
+          () => {
+            logoMini(false);
+          }
+        );
+      }, 1000);
     } else {
       this.setState(
         {
           navigation: false
         },
         () => {
-          contentHidden(false);
           logoMini(true);
+          setTimeout(() => {
+            contentHidden(false);
+          }, 1000);
         }
       );
     }
