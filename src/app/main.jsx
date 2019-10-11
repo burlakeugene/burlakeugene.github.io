@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+
 import { Provider, connect } from 'react-redux';
 import { store } from 'store';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import * as serviceWorker from './serviceWorker';
 import { isMobile } from 'actions/App';
 
 import Index from 'containers/Index';
@@ -66,10 +65,10 @@ App = connect(state => {
   };
 })(App);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('app')
-);
-serviceWorker.unregister();
+export default () => {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};

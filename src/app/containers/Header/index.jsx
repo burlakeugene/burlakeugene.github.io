@@ -13,30 +13,41 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navigation: false
+      navigation: false,
+      hamburger: false
     };
+    this.timeout = false;
   }
   navigationToggle() {
+    clearTimeout(this.timeout);
     if (!this.state.navigation) {
-      contentHidden(true);
-      setTimeout(() => {
-        this.setState(
-          {
-            navigation: true
-          },
-          () => {
-            logoMini(false);
-          }
-        );
-      }, 1000);
-    } else {
       this.setState(
         {
+          hamburger: true
+        },
+        () => {
+          contentHidden(true);
+          this.timeout = setTimeout(() => {
+            this.setState(
+              {
+                navigation: true
+              },
+              () => {
+                logoMini(false);
+              }
+            );
+          }, 1000);
+        }
+      );
+    } else {
+      logoMini(true);
+      this.setState(
+        {
+          hamburger: false,
           navigation: false
         },
         () => {
-          logoMini(true);
-          setTimeout(() => {
+          this.timeout = setTimeout(() => {
             contentHidden(false);
           }, 1000);
         }
@@ -45,7 +56,7 @@ class Header extends Component {
   }
   render() {
     let { isWide, preloaderShow } = this.props,
-      { navigation } = this.state;
+      { navigation, hamburger } = this.state;
     return (
       <header
         className={[
@@ -69,7 +80,7 @@ class Header extends Component {
           </div>
           <Logo />
           <Hamburger
-            active={navigation}
+            active={hamburger}
             onClick={() => {
               this.navigationToggle();
             }}

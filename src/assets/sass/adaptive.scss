@@ -16,6 +16,12 @@
     position: relative;
     top: 61px;
   }
+  .app-header__navigation .logo div span:first-child{
+    width: 20px;
+  }
+  .app-header-content{
+    padding: 15px 50px;
+  }
 }
 
 @media(max-width: 700px){
