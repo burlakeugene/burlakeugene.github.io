@@ -51,6 +51,7 @@ class App extends Component {
               <Route component={NotFound} />
             </Switch>
           </div>
+          <Footer />
         </Router>
       </div>
     );

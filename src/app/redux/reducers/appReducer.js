@@ -10,7 +10,8 @@ var appReducer = function(state = initialState, action) {
       logoLoading: action.hasOwnProperty('logoLoading') ? action.logoLoading : state.loading.logoLoading,
       preloaderShow: action.hasOwnProperty('preloaderShow') ? action.preloaderShow : state.loading.preloaderShow,
       headerWide: action.hasOwnProperty('headerWide') ? action.headerWide : state.loading.headerWide,
-      contentHidden: action.hasOwnProperty('contentHidden') ? action.contentHidden : state.loading.contentHidden
+      contentHidden: action.hasOwnProperty('contentHidden') ? action.contentHidden : state.loading.contentHidden,
+      footerOverlay: action.hasOwnProperty('footerOverlay') ? action.footerOverlay : state.loading.footerOverlay
     }
     return newState;
   }

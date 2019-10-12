@@ -1,10 +1,11 @@
 export default {
-    loading: {
-        appLoading: true,
-        logoMini: false,
-        logoLoading: true,
-        preloaderShow: true,
-        headerWide: true,
-        contentHidden: true
-    }
-}
+  loading: {
+    appLoading: true,
+    logoMini: false,
+    logoLoading: true,
+    preloaderShow: true,
+    headerWide: true,
+    contentHidden: true,
+    footerOverlay: false
+  }
+};

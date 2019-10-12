@@ -61,7 +61,7 @@ body {
   background-color: $panel-background;
   height: 100%;
   &-body {
-    height: 100%;
+    height: calc(100% - 86px);
     transition: all 1s;
     padding-top: 80px;
     width: 100%;

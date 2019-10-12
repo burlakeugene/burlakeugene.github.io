@@ -1,0 +1,12 @@
+.app-footer{
+  padding: 15px;
+  position: relative;
+  .socials{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+  &__overlay{
+    z-index: 4;
+  }
+}

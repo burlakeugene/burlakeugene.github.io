@@ -11,11 +11,11 @@ $app-color: #2b2c31;
       font-size: 0;
       width: 50px;
       height: 50px;
-      background-color: $app-color;
+      background-color: #000;
       border-radius: 50%;
       display: inline-block;
       position: relative;
-      box-shadow: 0 0 0 1px $app-color;
+      box-shadow: 0 0 0 1px #000;
       transition: all 0.3s;
       i {
         transition: all 0.3s;

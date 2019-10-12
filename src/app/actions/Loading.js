@@ -87,3 +87,12 @@ export const contentHidden = (bool = false) => {
     }
   });
 };
+
+export const footerOverlay = (bool = false) => {
+  store.dispatch({
+    type: 'LOAD_CHANGE',
+    payload: {
+      footerOverlay: bool
+    }
+  });
+};
