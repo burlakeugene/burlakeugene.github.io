@@ -1,6 +1,10 @@
 .app-footer{
   padding: 15px;
   position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   .socials{
     text-align: left;
     padding: 0;

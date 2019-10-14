@@ -26,7 +26,7 @@ export default class Fluid extends Component {
   observer() {
     this.refs.target &&
       new InView(this.refs.target, {
-        offset: window.innerHeight / 5,
+        offset: window.innerHeight / 10,
         in: e => {
           this.setState({
             inView: true

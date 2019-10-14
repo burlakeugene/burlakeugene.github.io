@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Logo from 'components/Logo';
 import Navigation from 'components/Navigation';
 import Hamburger from 'components/Hamburger';
-import { contentHidden, logoMini, footerOverlay } from 'actions/Loading';
+import { contentHidden, logoMini } from 'actions/Loading';
 import './styles/styles.scss';
 import ClassToggler from 'components/ClassToggler';
 import Blob from 'components/Blob';
@@ -26,7 +26,6 @@ class Header extends Component {
         },
         () => {
           contentHidden(true);
-          footerOverlay(true);
           this.timeout = setTimeout(() => {
             this.setState(
               {
@@ -49,7 +48,6 @@ class Header extends Component {
         () => {
           this.timeout = setTimeout(() => {
             contentHidden(false);
-            footerOverlay(false);
           }, 1000);
         }
       );

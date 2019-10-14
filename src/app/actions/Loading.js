@@ -1,37 +1,59 @@
 import { store } from 'store';
 
 export const loadOff = () => {
-  logoMini(true);
-  logoLoading(false);
-  setTimeout(() => {
-    preloaderShow(false);
-    setTimeout(() => {
-      appLoading(false);
-      setTimeout(() => {
+  promisify(() => {
+    logoMini(true);
+    logoLoading(false);
+  })
+    .then(() => {
+      return promisify(() => {
+        preloaderShow(false);
+      });
+    })
+    .then(() => {
+      return promisify(() => {
+        appLoading(false);
         headerWide(false);
-        setTimeout(() => {
-          contentHidden(false);
-        }, 500);
-      }, 500);
-    }, 500);
-  }, 500);
+      });
+    })
+    .then(() => {
+      return promisify(() => {
+        contentHidden(false);
+      });
+    })
+    .then(() => {
+      promisify(() => {
+        footerOverlay(true);
+      }, 1000);
+    });
 };
 
 export const loadOn = () => {
-  contentHidden(true);
-  setTimeout(() => {
-    headerWide(true);
-    setTimeout(() => {
-      preloaderShow(true);
-      setTimeout(() => {
+  promisify(() => {
+    contentHidden(true);
+    footerOverlay(false);
+  })
+    .then(() => {
+      return promisify(() => {
+        headerWide(true);
+      });
+    })
+    .then(() => {
+      return promisify(() => {
+        preloaderShow(true);
+      });
+    })
+    .then(() => {
+      return promisify(() => {
         appLoading(true);
-        setTimeout(() => {
-          logoMini(false);
-          logoLoading(true);
-        }, 500);
-      }, 500);
-    }, 500);
-  }, 500);
+      });
+    })
+    .then(() => {
+      promisify(() => {
+        logoMini(false);
+        logoLoading(true);
+      });
+    });
 };
 
 export const headerWide = (bool = false) => {
@@ -94,5 +116,14 @@ export const footerOverlay = (bool = false) => {
     payload: {
       footerOverlay: bool
     }
+  });
+};
+
+export const promisify = (func, time = 500) => {
+  return new Promise((resolve, reject) => {
+    func();
+    setTimeout(() => {
+      resolve();
+    }, time);
   });
 };
