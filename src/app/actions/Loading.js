@@ -1,59 +1,45 @@
 import { store } from 'store';
+import { promisify } from './App';
+import 'babel-polyfill';
 
-export const loadOff = () => {
-  promisify(() => {
+export const loadOff = async () => {
+  await promisify(() => {
     logoMini(true);
     logoLoading(false);
-  })
-    .then(() => {
-      return promisify(() => {
-        preloaderShow(false);
-      });
-    })
-    .then(() => {
-      return promisify(() => {
-        appLoading(false);
-        headerWide(false);
-      });
-    })
-    .then(() => {
-      return promisify(() => {
-        contentHidden(false);
-      });
-    })
-    .then(() => {
-      promisify(() => {
-        footerOverlay(true);
-      }, 1000);
-    });
+  }, 500);
+  await promisify(() => {
+    preloaderShow(false);
+  }, 500);
+  await promisify(() => {
+    appLoading(false);
+    headerWide(false);
+  }, 500);
+  await promisify(() => {
+    contentHidden(false);
+  }, 500);
+  await promisify(() => {
+    footerOverlay(true);
+  }, 1000);
 };
 
-export const loadOn = () => {
-  promisify(() => {
+export const loadOn = async () => {
+  await promisify(() => {
     contentHidden(true);
     footerOverlay(false);
-  })
-    .then(() => {
-      return promisify(() => {
-        headerWide(true);
-      });
-    })
-    .then(() => {
-      return promisify(() => {
-        preloaderShow(true);
-      });
-    })
-    .then(() => {
-      return promisify(() => {
-        appLoading(true);
-      });
-    })
-    .then(() => {
-      promisify(() => {
-        logoMini(false);
-        logoLoading(true);
-      });
-    });
+  }, 500);
+  await promisify(() => {
+    headerWide(true);
+  }, 500);
+  await promisify(() => {
+    preloaderShow(true);
+  }, 500);
+  await promisify(() => {
+    appLoading(true);
+  }, 500);
+  await promisify(() => {
+    logoMini(false);
+    logoLoading(true);
+  }, 500);
 };
 
 export const headerWide = (bool = false) => {
@@ -116,14 +102,5 @@ export const footerOverlay = (bool = false) => {
     payload: {
       footerOverlay: bool
     }
-  });
-};
-
-export const promisify = (func, time = 500) => {
-  return new Promise((resolve, reject) => {
-    func();
-    setTimeout(() => {
-      resolve();
-    }, time);
   });
 };
