@@ -7,7 +7,7 @@ import { contentHidden, logoMini } from 'actions/Loading';
 import './styles/styles.scss';
 import ClassToggler from 'components/ClassToggler';
 import Blob from 'components/Blob';
-
+import Content from './components/Content';
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -66,13 +66,7 @@ class Header extends Component {
         ].join(' ')}
       >
         <div className="app-header-inner">
-          <div className="app-header-content">
-            <div className="app-header-content-scroller">
-              <div>
-                Comming soon
-              </div>
-            </div>
-          </div>
+          <Content />
           <div className="app-header-blob">
             <Blob />
           </div>
