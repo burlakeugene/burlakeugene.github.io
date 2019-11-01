@@ -18,11 +18,14 @@
       transition: 0.5s;
       width: 50px;
       font-size: 30px;
+      line-height: 1em;
       &:first-child {
         width: 102px;
       }
       &:last-child {
         width: 8px;
+        // color: transparent;
+        position: relative;
       }
     }
   }
@@ -30,9 +33,7 @@
     div {
       span {
         &:last-child {
-          animation-name: bounce;
-          animation-duration: 1.5s;
-          animation-iteration-count: infinite;
+          animation: bounce 1500ms infinite ease;
         }
       }
     }
@@ -73,13 +74,13 @@
     transform: translateY(0);
   }
   35% {
-    transform: translateY(-50%);
+    transform: translateY(-60%);
   }
   50% {
-    transform: translateY(0);
+    transform: translateY(0%);
   }
-  57% {
-    transform: translateY(-15%);
+  60% {
+    transform: translateY(-30%);
   }
   64% {
     transform: translateY(0);

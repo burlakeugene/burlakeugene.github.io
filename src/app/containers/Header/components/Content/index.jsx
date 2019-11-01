@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Blob from 'components/Blob';
 import './styles/styles.scss';
 export default class Content extends Component {
   constructor(props) {
@@ -278,7 +279,14 @@ export default class Content extends Component {
       <div className="app-header-content">
         <div className="app-header-content-scroller">
           <div>Comming soon</div>
-          <div className="map" ref="map"></div>
+          <Blob styles={{
+            width: '40%',
+            height: '40%',
+            margin: '5px',
+            boxShadow: '0 0 0 2px #fff'
+          }}>
+            <div className="map" ref="map"></div>
+          </Blob>
         </div>
       </div>
     );
