@@ -20,7 +20,7 @@ export default class Content extends Component {
       mapData.zoom = 10;
       var infowindow = new google.maps.InfoWindow();
       var myMap = new google.maps.Map(map, {
-        center: { lat: mapData.x, lng: mapData.y },
+        center: { lat: mapData.x - 0.035, lng: mapData.y },
         zoom: mapData.zoom || 8,
         mapTypeControl: false,
         zoomControl: false,
@@ -254,9 +254,9 @@ export default class Content extends Component {
         map: myMap,
         icon: {
           url: mapData.pinUrl,
-          scaledSize: new google.maps.Size(20, 20),
+          scaledSize: new google.maps.Size(60, 60),
           origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(10, 10)
+          anchor: new google.maps.Point(30, 30)
         }
       });
       //   google.maps.event.addListener(marker, 'click', function() {
@@ -278,15 +278,32 @@ export default class Content extends Component {
     return (
       <div className="app-header-content">
         <div className="app-header-content-scroller">
-          <div>Comming soon</div>
-          <Blob styles={{
-            width: '40%',
-            height: '40%',
-            margin: '5px',
-            boxShadow: '0 0 0 2px #fff'
-          }}>
-            <div className="map" ref="map"></div>
-          </Blob>
+          <div className="app-header-content-left">
+            <div className="app-header-content-left-inner">
+              <div className="contacts">
+                <div className="contacts-item contacts-item__place">
+                  Ukraine, Sevastopol
+                </div>
+                <div className="contacts-item contacts-item__mail">
+                  Get in touch:{' '}
+                  <a
+                    className="link"
+                    href="mailto:burlakeugene@gmail.com"
+                    target="_blank"
+                  >
+                    <span data-hover="burlakeugene@gmail.com">
+                      burlakeugene@gmail.com
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="app-header-content-right">
+            <Blob>
+              <div className="map" ref="map"></div>
+            </Blob>
+          </div>
         </div>
       </div>
     );

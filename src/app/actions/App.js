@@ -23,6 +23,15 @@ export const promisify = (func = () => {}, delay = 0) => {
   });
 };
 
+export const simplePromisify = (func = () => {}, delay = 0) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      func();
+      resolve();
+    }, delay);
+  })
+}
+
 export const isMobile = () => {
   const Detect = new Detection();
   return Detect.isMobile();

@@ -33,6 +33,11 @@ class Header extends Component {
               },
               () => {
                 logoMini(false);
+                setTimeout(() => {
+                  this.setState({
+                    headerContentVisibled: true
+                  });
+                }, 1000);
               }
             );
           }, 1000);
@@ -40,29 +45,35 @@ class Header extends Component {
       );
     } else {
       logoMini(true);
-      this.setState(
-        {
-          hamburger: false,
-          navigation: false
-        },
-        () => {
-          this.timeout = setTimeout(() => {
-            contentHidden(false);
-          }, 1000);
-        }
-      );
+      this.setState({
+        headerContentVisibled: false
+      });
+      setTimeout(() => {
+        this.setState(
+          {
+            hamburger: false,
+            navigation: false
+          },
+          () => {
+            this.timeout = setTimeout(() => {
+              contentHidden(false);
+            }, 1000);
+          }
+        );
+      }, 1000);
     }
   }
   render() {
     let { isWide, preloaderShow } = this.props,
-      { navigation, hamburger } = this.state;
+      { navigation, hamburger, headerContentVisibled } = this.state;
     return (
       <header
         className={[
           'app-header',
           isWide ? 'app-header__wide' : '',
           preloaderShow ? 'app-header__preloaderShow' : '',
-          navigation ? 'app-header__navigation' : ''
+          navigation ? 'app-header__navigation' : '',
+          headerContentVisibled ? 'app-header__content-visibled' : ''
         ].join(' ')}
       >
         <div className="app-header-inner">

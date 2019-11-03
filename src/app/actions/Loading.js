@@ -1,42 +1,38 @@
 import { store } from 'store';
-import { promisify } from './App';
+import { promisify, simplePromisify } from './App';
 import 'babel-polyfill';
 
 export const loadOff = async () => {
-  await promisify(() => {
+  await simplePromisify(() => {
     logoMini(true);
     logoLoading(false);
-  }, 500);
-  await promisify(() => {
+  });
+  await simplePromisify(() => {
     preloaderShow(false);
-  }, 500);
-  await promisify(() => {
+  }, 300);
+  await simplePromisify(() => {
     appLoading(false);
     headerWide(false);
   }, 500);
-  await promisify(() => {
+  await simplePromisify(() => {
     contentHidden(false);
   }, 500);
-  await promisify(() => {
+  await simplePromisify(() => {
     footerOverlay(true);
   }, 1000);
 };
 
 export const loadOn = async () => {
-  await promisify(() => {
+  await simplePromisify(() => {
     contentHidden(true);
     footerOverlay(false);
-  }, 500);
-  await promisify(() => {
     headerWide(true);
-  }, 500);
-  await promisify(() => {
     preloaderShow(true);
-  }, 500);
-  await promisify(() => {
+  });
+  await simplePromisify(() => {
     appLoading(true);
   }, 500);
-  await promisify(() => {
+  await simplePromisify(() => {
     logoMini(false);
     logoLoading(true);
   }, 500);
