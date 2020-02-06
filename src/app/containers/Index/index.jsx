@@ -7,9 +7,9 @@ import './styles/styles.scss';
 class Index extends Component {
   render() {
     return (
-      <React.Fragment>
-        <Hero />
-      </React.Fragment>
+      <>
+        <Hero {...this.props} />
+      </>
     );
   }
 }

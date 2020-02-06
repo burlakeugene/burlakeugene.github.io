@@ -6,7 +6,7 @@ import './styles/styles.scss';
 
 class Hero extends Component {
   render() {
-    let { contentHidden } = this.props;
+    let { contentHidden, history } = this.props;
     return (
       <section className="section section__hero">
         <div className="hero">
@@ -32,6 +32,18 @@ class Hero extends Component {
             >
               <div className="hero-label-inner">Developer</div>
             </ClassToggler>
+            {/* <ClassToggler
+              defaultClass="hero-label"
+              toggleClass={contentHidden ? '' : 'hero-label__visible'}
+            >
+              <a
+                  onClick={() => {
+                    history.push('projects');
+                  }}
+                >
+                  Projects
+                </a>
+            </ClassToggler> */}
           </div>
         </div>
       </section>

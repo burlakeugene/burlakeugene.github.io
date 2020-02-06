@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { isMobile } from 'actions/App';
 
 import Index from 'containers/Index';
+import Projects from 'containers/Projects';
 import Header from 'containers/Header';
 import Footer from 'containers/Footer';
 import NotFound from 'containers/NotFound';
@@ -48,6 +49,7 @@ class App extends Component {
           >
             <Switch>
               <Route exact path="/" component={Index} />
+              <Route exact path="/projects" component={Projects} />
               <Route component={NotFound} />
             </Switch>
           </div>
