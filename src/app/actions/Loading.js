@@ -22,7 +22,7 @@ export const loadOff = async () => {
   }, 1000);
 };
 
-export const loadOn = async () => {
+export const loadOn = async (resolveDelay = 0) => {
   await simplePromisify(() => {
     contentHidden(true);
     footerOverlay(false);
@@ -36,6 +36,7 @@ export const loadOn = async () => {
     logoMini(false);
     logoLoading(true);
   }, 500);
+  await simplePromisify(() => {}, resolveDelay)
 };
 
 export const headerWide = (bool = false) => {

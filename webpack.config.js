@@ -88,7 +88,8 @@ module.exports = {
       actions: ROOT_DIR + '/src/app/actions',
       store: ROOT_DIR + '/src/app/redux/store',
       layouts: ROOT_DIR + '/src/app/layouts',
-      assets: ROOT_DIR + '/src/assets'
+      assets: ROOT_DIR + '/src/assets',
+      core: ROOT_DIR + '/src/app/core'
     }
   },
   devServer: {

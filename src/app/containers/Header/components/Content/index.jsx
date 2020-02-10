@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Blob from 'components/Blob';
+import Link from 'components/Link';
 import './styles/styles.scss';
 export default class Content extends Component {
   constructor(props) {
@@ -286,15 +287,12 @@ export default class Content extends Component {
                 </div>
                 <div className="contacts-item contacts-item__mail">
                   Get in touch:{' '}
-                  <a
-                    className="link"
-                    href="mailto:burlakeugene@gmail.com"
+                  <Link
+                    text="burlakeugene@gmail.com"
+                    to="mailto:burlakeugene@gmail.com"
                     target="_blank"
-                  >
-                    <span data-hover="burlakeugene@gmail.com">
-                      burlakeugene@gmail.com
-                    </span>
-                  </a>
+                    external={true}
+                  />
                 </div>
               </div>
             </div>

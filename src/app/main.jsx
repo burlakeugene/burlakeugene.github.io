@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import { Provider, connect } from 'react-redux';
 import { store } from 'store';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { isMobile } from 'actions/App';
-
+import history from 'core/history';
 import Index from 'containers/Index';
 import Projects from 'containers/Projects';
 import Header from 'containers/Header';
@@ -39,7 +39,7 @@ class App extends Component {
       >
         {!isMobile() && <Cursor />}
         {!isMobile() && <ScrollBar scrollEnabled={!contentHidden} />}
-        <Router>
+        <Router history={history}>
           <Header />
           <div
             className={[

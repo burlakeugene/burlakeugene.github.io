@@ -52,10 +52,10 @@
         }
       }
     }
-    &__mini{
-      .hero{
-        &-label{
-          &-inner{
+    &__mini {
+      .hero {
+        &-label {
+          &-inner {
             font-size: 100px;
           }
         }
@@ -80,11 +80,12 @@
         letter-spacing: 6px;
       }
     }
-    &__big{
+    &__big {
       padding: 0 15px;
       text-align: right;
-      div{
-        &, &:first-child{
+      div {
+        &,
+        &:first-child {
           font-size: 70px;
           letter-spacing: -0.07em;
         }
@@ -93,6 +94,27 @@
     &__visible {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+  &-link {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 2s;
+    padding-right: 15px;
+    text-align: right;
+    &__visible {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 1.5s;
+    }
+    .link{
+      font-size: 30px;
+      line-height: 40px;
+      padding-right: 30px;
+      &:after{
+        width: 25px;
+        height: 25px;
+      }
     }
   }
 }

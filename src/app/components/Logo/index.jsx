@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { goTo } from 'actions/App';
 import './styles/styles.scss';
 
 class Logo extends Component {
@@ -15,12 +15,16 @@ class Logo extends Component {
           isLoading ? 'logo__loading' : ''
         ].join(' ')}
       >
-        <Link to={'/'}>
+        <a
+          onClick={() => {
+            goTo('/');
+          }}
+        >
           <div>
             <span>burlak</span>
             <span>.</span>
           </div>
-        </Link>
+        </a>
       </div>
     );
   }

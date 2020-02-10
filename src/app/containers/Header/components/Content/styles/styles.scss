@@ -68,35 +68,3 @@
     }
   }
 }
-
-.link {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 14px;
-  overflow: hidden;
-  line-height: 16px;
-  font-weight: 600;
-  span {
-    position: relative;
-    display: inline-block;
-    color: #000;
-    transition: all 0.3s;
-    &:before {
-      content: attr(data-hover);
-      position: absolute;
-      display: block;
-      top: 100%;
-      color: #000;
-      -webkit-transform: translate3d(0, 0, 0);
-      -moz-transform: translate3d(0, 0, 0);
-      -ms-transform: translate3d(0, 0, 0);
-      -o-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  &:hover {
-    span {
-      transform: translateY(-100%);
-    }
-  }
-}

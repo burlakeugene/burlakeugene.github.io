@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ClassToggler from 'components/ClassToggler';
 import Blob from 'components/Blob';
+import Link from 'components/Link';
 import './styles/styles.scss';
 
 class Hero extends Component {
@@ -32,19 +33,13 @@ class Hero extends Component {
             >
               <div className="hero-label-inner">Developer</div>
             </ClassToggler>
-            {/* <ClassToggler
-              defaultClass="hero-label"
-              toggleClass={contentHidden ? '' : 'hero-label__visible'}
-            >
-              <a
-                  onClick={() => {
-                    history.push('projects');
-                  }}
-                >
-                  Projects
-                </a>
-            </ClassToggler> */}
           </div>
+          <ClassToggler
+            defaultClass="hero-link"
+            toggleClass={contentHidden ? '' : 'hero-link__visible'}
+          >
+            <Link to={'projects'} text={'Projects'} arrow />
+          </ClassToggler>
         </div>
       </section>
     );
