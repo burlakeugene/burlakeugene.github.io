@@ -19,8 +19,8 @@
 
 ::-webkit-scrollbar {
   background: 0 0;
-  width: 2px;
-  height: 2px;
+  width: 1px;
+  height: 1px;
 }
 
 ::-webkit-scrollbar-track {
@@ -65,7 +65,7 @@ body {
     transition: all 1s;
     padding-top: 80px;
     width: 100%;
-    padding: 15px 50px 15px 130px;
+    padding: 15px 50px 0px 135px;
     margin: 0 auto;
     position: relative;
   }

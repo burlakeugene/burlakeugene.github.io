@@ -47,6 +47,13 @@ export const goTo = to => {
   });
 };
 
+export const goBack = () => {
+  loadOn(3000).then(() => {
+    history.goBack();
+    loadOff();
+  });
+};
+
 // export function thunkTest(){
 // 	return function(dispatch){
 // 		dispatch({
