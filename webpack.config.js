@@ -32,6 +32,11 @@ module.exports = {
         use: ['babel-loader']
       },
       {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'ts-loader']
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
@@ -81,7 +86,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       components: ROOT_DIR + '/src/app/components',
       containers: ROOT_DIR + '/src/app/containers',
