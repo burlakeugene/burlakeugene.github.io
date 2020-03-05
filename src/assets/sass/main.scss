@@ -5,6 +5,7 @@
   box-sizing: border-box;
   scrollbar-color: $color-black $color-white;
   scrollbar-width: thin;
+  user-select: none;
 }
 
 ::selection {

@@ -41,14 +41,14 @@ export const isMobile = () => {
 
 export const goTo = to => {
   if(history.location.pathname === to) return;
-  loadOn(3000).then(() => {
+  loadOn(1500).then(() => {
     history.push(to);
     loadOff();
   });
 };
 
 export const goBack = () => {
-  loadOn(3000).then(() => {
+  loadOn(1500).then(() => {
     history.goBack();
     loadOff();
   });
