@@ -6,6 +6,6 @@ export default class Item extends Component<Project> {
     super(props);
   }
   render() {
-    return <div>{this.props.name} {this.props.systemName}</div>;
+    return <div>{this.props.name}</div>;
   }
 }

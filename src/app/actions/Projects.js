@@ -4,16 +4,8 @@ export const getProjects = () => {
     let resp = {
       items: [
         {
-          name: 'Maskit',
-          systemName: 'maskit'
-        },
-        {
-          name: 'Searchable dropdown',
-          // systemName: 'autocomplite'
-        },
-        {
-          name: 'Modal',
-          systemName: true
+          name: 'Comming soon',
+          systemName: ''
         }
       ]
     };
