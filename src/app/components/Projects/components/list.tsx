@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getProjects } from 'actions/Projects';
-import {Props, State, Projects, Project} from 'interfaces/Projects';
+import {Props, State, Projects, Project} from 'types/Projects';
 import Item from './item';
 
 export default class List extends Component<Props, State> {
@@ -11,7 +11,7 @@ export default class List extends Component<Props, State> {
     };
   }
   componentDidMount() {
-    getProjects().then((resp: Projects) => {
+    getProjects().then((resp) => {
       this.setState({
         items: resp.items
       });
@@ -21,9 +21,8 @@ export default class List extends Component<Props, State> {
     let { items } = this.state;
     return (
       <div className="projects">
-        {/* <Item name={'132'} systemName={'321'} /> */}
-        {items.map((item) => {
-          return <Item {...item} />
+        {items.map((item, index) => {
+          return <Item key={index} {...item} />
         })}
       </div>
     );

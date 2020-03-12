@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { goTo } from 'actions/App';
 import './styles/styles.scss';
 export default class Link extends Component {
-  constructor(props) {
+  constructor(props = {}) {
     super(props);
-    this.state = props;
+    this.state = {...props};
   }
   static getDerivedStateFromProps(props, state) {
-    return props;
+    return props || {};
   }
   render() {
     let { state } = this;

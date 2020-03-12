@@ -122,8 +122,10 @@
     &__wide,
     &__navigation {
       .app-header-blob {
-        transform: translate(0%, -50%) scale(20);
-        .blob{}
+        transform: translate(0%, -50%) scale(30);
+        .blob{
+          border-radius: 50% !important;
+        }
       }
     }
   }

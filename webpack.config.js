@@ -95,7 +95,8 @@ module.exports = {
       layouts: ROOT_DIR + '/src/app/layouts',
       assets: ROOT_DIR + '/src/assets',
       core: ROOT_DIR + '/src/app/core',
-      interfaces: ROOT_DIR + '/src/app/interfaces'
+      types: ROOT_DIR + '/src/app/types',
+      data: ROOT_DIR + '/data',
     }
   },
   devServer: {

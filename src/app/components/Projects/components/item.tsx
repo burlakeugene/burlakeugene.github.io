@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Props, State, Projects, Project} from 'interfaces/Projects';
+import {Props, State, Projects, Project} from 'types/Projects';
 
 export default class Item extends Component<Project> {
   constructor(props: Project){

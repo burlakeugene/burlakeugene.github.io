@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './styles/styles.scss';
-import data from './data.js';
+import data from 'data/socials.js';
 
 class Socials extends Component{
 

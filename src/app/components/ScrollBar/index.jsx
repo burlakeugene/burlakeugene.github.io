@@ -26,8 +26,8 @@ export default class ScrollBar extends Component {
   checkForDisableScroll(bool = false) {
     if (bool) {
       document.body.classList.remove('custom-scrollbar-overflow-hidden');
-      if(this.first){
-        window.scrollTo(0,0)
+      if (this.first) {
+        window.scrollTo(0, 0);
         this.first = false;
       }
     } else {
