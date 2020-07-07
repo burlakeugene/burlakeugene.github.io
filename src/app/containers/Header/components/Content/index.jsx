@@ -283,7 +283,7 @@ export default class Content extends Component {
             <div className="app-header-content-left-inner">
               <div className="contacts">
                 <div className="contacts-item contacts-item__place">
-                  Ukraine, Sevastopol
+                  Sevastopol
                 </div>
                 <div className="contacts-item contacts-item__mail">
                   Get in touch:{' '}
