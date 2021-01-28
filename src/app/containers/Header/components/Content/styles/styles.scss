@@ -3,68 +3,40 @@
     display: flex;
     align-items: center;
   }
-  &-left {
-    width: 50%;
-    position: relative;
-    z-index: 2;
-    text-align: left;
-    padding-left: 50px;
-    &-inner {
-      width: 150%;
-    }
-  }
-  &-right {
-    width: 50%;
-    padding-right: 50px;
-  }
-  .blob {
-    position: relative;
-    width: 100%;
-    height: 40vw;
-    background-color: transparent;
-  }
-  .map {
-    width: 100%;
-    height: 110%;
-    top: 0;
-    left: 0;
-  }
 }
 
 .contacts {
+  text-align: left;
+  margin: auto;
+  width: 100%;
+  &-title {
+    font-weight: 400;
+    font-size: 50px;
+    margin-bottom: 40px;
+    line-height: 1em;
+  }
   &-item {
     margin-bottom: 40px;
-    font-weight: 800;
-    font-size: 50px;
+    &-label {
+      margin-right: 15px;
+    }
+    &-label,
+    &-link {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .link {
+      font-size: 44px;
+      line-height: 55px;
+      span {
+        &,
+        &:before {
+          color: #fff;
+        }
+      }
+    }
     &:last-child {
       margin-bottom: 0;
-    }
-    &__place {
-      padding-left: 70px;
-      position: relative;
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        transform: translateY(-50%);
-        background-image: url(../images/pin-icon.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-      }
-    }
-  }
-  .link{
-    font-size: 40px;
-    line-height: 50px;
-    span{
-      &,&:before{
-        color: #fff;
-      }
     }
   }
 }

@@ -31,19 +31,8 @@
 }
 
 @media (max-width: 768px) {
-  .contacts-item {
-    font-size: 30px;
-    margin-bottom: 20px;
-    &__place {
-      padding-left: 35px;
-      &:before {
-        width: 25px;
-        height: 25px;
-      }
-    }
-  }
   .contacts .link{
-    font-size: 20px;
+    font-size: 24px;
     line-height: 30px;
   }
 }
@@ -118,19 +107,22 @@
   }
 }
 
-@media(max-width: 420px){
+@media(max-width: 460px){
   .contacts-item{
-    font-size: 20px;
-    &__place{
-      padding-left: 25px;
-      &:before{
-        width: 18px;
-        height: 18px;
-      }
-    }
+    margin-bottom: 20px;
   }
   .contacts .link{
-    font-size: 13px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+@media(max-width: 420px){
+  .contacts .link{
+    font-size: 16px;
     line-height: 20px;
+  }
+  .app-header-content{
+    padding-right: 30px;
   }
 }
