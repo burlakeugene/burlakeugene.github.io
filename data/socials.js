@@ -2,7 +2,7 @@ export default [
   {
     name: 'LinkedIn',
     systemName: 'linkedin',
-    link: 'https://www.linkedin.com/in/eugene-burlak-5216b4125/'
+    link: 'https://www.linkedin.com/in/evgeniy-burlak-5216b4125/'
   },
   {
     name: 'Github',
